@@ -37,3 +37,4 @@ starlink_enable: false
 
 # Plex configuration.
 plex_enable: true
+plex_claim_code: "enter-code-here"
