@@ -1,6 +1,6 @@
 ---
 # Location where configuration files will be stored.
-config_dir: '~'
+config_dir: "~"
 
 # Pi-hole configuration.
 pihole_enable: true
@@ -13,7 +13,7 @@ monitoring_enable: true
 monitoring_grafana_admin_password: "admin"
 monitoring_speedtest_interval: 60m
 monitoring_ping_interval: 5s
-monitoring_ping_hosts:  # [URL];[HUMAN_READABLE_NAME]
+monitoring_ping_hosts: # [URL];[HUMAN_READABLE_NAME]
   - http://www.google.com/;google.com
   - https://github.com/;github.com
   - https://www.apple.com/;apple.com
@@ -34,3 +34,6 @@ airgradient_sensors:
 
 # Starlink configuration. (Also requires `monitoring_enable`)
 starlink_enable: false
+
+# Plex configuration.
+plex_enable: true

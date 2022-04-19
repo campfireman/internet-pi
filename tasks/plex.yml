@@ -1,0 +1,14 @@
+---
+- name: Copy plex docker-compose template to Pi.
+  ansible.builtin.template:
+    src: templates/plex-docker-compose.yml.j2
+    dest: "{{ config_dir }}/plex/docker-compose.yml"
+    mode: "0640"
+  become: false
+  notify: Restart plex
+
+- name: Ensure plex is running.
+  community.docker.docker_compose:
+    project_src: "{{ config_dir }}/plex/"
+    build: false
+  become: false
