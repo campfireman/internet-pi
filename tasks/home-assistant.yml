@@ -1,0 +1,21 @@
+---
+- name: Create Home Assistant folder.
+  ansible.builtin.file:
+    path: "{{ config_dir }}/home-assistant"
+    state: directory
+    mode: 0755
+  become: false
+
+- name: Copy home-assistant docker-compose template to Pi.
+  ansible.builtin.template:
+    src: templates/home-assistant-docker-compose.yml.j2
+    dest: "{{ config_dir }}/home-assistant/docker-compose.yml"
+    mode: "0640"
+  become: false
+  notify: Restart Home Assistant
+
+- name: Ensure Home Assistant is running.
+  community.docker.docker_compose:
+    project_src: "{{ config_dir }}/home-assistant/"
+    build: false
+  become: false

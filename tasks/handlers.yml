@@ -33,3 +33,10 @@
     build: false
     restarted: true
   become: false
+
+- name: Restart Home Assistant
+  community.docker.docker_compose:
+    project_src: "{{ config_dir }}/home-assistant/"
+    build: false
+    restarted: true
+  become: false
