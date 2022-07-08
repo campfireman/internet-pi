@@ -1,4 +1,10 @@
 ---
+- name: Ensure plex directory exists
+  file:
+    path: "{{ config_dir }}/plex"
+    state: directory
+    mode: '0755'
+
 - name: Copy plex docker-compose template to Pi.
   ansible.builtin.template:
     src: templates/plex-docker-compose.yml.j2
